@@ -1,0 +1,60 @@
+CREATE DATABASE  InventoryManagementSystem;
+
+CREATE TABLE userModule(
+salutation varchar(255),
+firstName varchar(255) NOT NULL,
+lastName varchar(255), 
+gender varchar(255), 
+mobile varchar(255), 
+email varchar(255) NOT NULL, 
+address varchar(255), 
+role varchar(255), 
+status varchar(255));
+
+INSERT INTO userModule(salutation, firstName, lastName, gender, mobile, email, address, role, status)
+VALUES  ('Good Afternoon', 'Anuj', 'Chaurasia', 'Male', '+918518860014', 'anujch004@gmail.com','NIT Raipur', 'Database Developer','Pending');
+
+//Update details
+
+UPDATE userModule 
+SET firstName = 'Sunny', status='Confirm'
+WHERE email='anujch004@gmail.com';
+
+//
+NOT NUll Values
+
+SELECT firstName, lastName, mobile
+FROM UserModule
+WHERE email IS NOT NULL;
+
+//
+CREATE TABLE itemModule(
+itemName varchar(255) NOT NULL, 
+itemImage varchar(255), 
+itemCategory varchar(255), 
+itemQuantity int NOT NULL, 
+itemUnit int, 
+itemUnitPrice int, 
+itemStatus varchar(255));
+
+INSERT INTO itemModule(itemName, itemImage, itemCategory, itemQuantity, itemUnit, itemUnitPrice, itemStatus)
+VALUES('Apple Smart Watch', 'Attached', 'Watch', 10 , 1, 14999,'Dispatched');
+
+//User can add, update, delete items
+//add a email column
+ALTER TABLE itemModule
+ADD Email varchar(255);
+
+// update a price of item
+UPDATE SET itemUnitPrice = 10999, itemUnit = 5
+WHERE itemName = 'Apple Smart Watch';
+
+//delete a record of Apple Smart Watch 
+DELETE From itemModule WHERE itemName = 'Apple Smart Watch';
+
+// Display total items in a table
+
+Select * from itemModule;
+
+
+
